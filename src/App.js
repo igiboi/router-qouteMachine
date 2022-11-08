@@ -16,10 +16,10 @@ function App() {
           <AllQuotes />
         </Route>
         <Route path="/quotes/:quoteId">
-          <NewQuote />
+          <QuoteDetail />
         </Route>
         <Route path="/new-quote">
-          <QuoteDetail />
+          <NewQuote />
         </Route>
       </Switch>
     </div>
