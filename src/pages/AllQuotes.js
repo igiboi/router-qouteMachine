@@ -1,8 +1,16 @@
+import { Fragment } from "react";
+import QuoteList from "../components/quotes/QuoteList";
+
+const DUMMY_QUOTES = [
+  { id: "q1", author: "Luigi", text: "constantly chasing something" },
+  { id: "q2", author: "Miguel", text: "Freedom from the Mind" },
+];
+
 const AllQuotes = () => {
   return (
-    <div>
-      <h1>All Quotes</h1>
-    </div>
+    <Fragment>
+      <QuoteList quotes={DUMMY_QUOTES} />
+    </Fragment>
   );
 };
 
