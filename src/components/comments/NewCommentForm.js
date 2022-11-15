@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 
 import useHttp from "../../hooks/use-http";
 import { addComment } from "../../lib/api";
@@ -21,11 +21,11 @@ const NewCommentForm = (props) => {
   const submitFormHandler = (event) => {
     event.preventDefault();
 
+    const enteredText = commentTextRef.current.value;
+
     // optional: Could validate here
 
-    const enteredText = commentTextRef.current.value;
-    // send comment to server
-    sendRequest({ commentData: { text: enteredText }, quoteId: props.quoteId }); // to get the quoteId from AddComment on useHttp.js
+    sendRequest({ commentData: { text: enteredText }, quoteId: props.quoteId });
   };
 
   return (

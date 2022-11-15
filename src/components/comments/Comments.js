@@ -62,7 +62,7 @@ const Comments = () => {
       {isAddingComment && (
         <NewCommentForm
           quoteId={quoteId}
-          onAddedCommentHanlder={onAddedCommentHanlder}
+          onAddedComment={onAddedCommentHanlder}
         />
       )}
       {comments}
