@@ -1,7 +1,7 @@
 const FIREBASE_DOMAIN =
   "https://router-quote-machine-default-rtdb.firebaseio.com/";
 
-export async function getAllQuotes() {
+export async function getAllQoutes() {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
   const data = await response.json();
 
@@ -9,7 +9,7 @@ export async function getAllQuotes() {
     throw new Error(data.message || "Could not fetch quotes.");
   }
 
-  const transformedQuotes = [];
+  const transformQuotes = [];
 
   for (const key in data) {
     const quoteObj = {
@@ -17,10 +17,10 @@ export async function getAllQuotes() {
       ...data[key],
     };
 
-    transformedQuotes.push(quoteObj);
+    transformQuotes.push(quoteObj);
   }
 
-  return transformedQuotes;
+  return transformQuotes;
 }
 
 export async function getSingleQuote(quoteId) {
@@ -28,15 +28,15 @@ export async function getSingleQuote(quoteId) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Could not fetch quote.");
+    throw new Error(data.message || "Could not fetch quotes.");
   }
 
-  const loadedQuote = {
+  const loadQuote = {
     id: quoteId,
     ...data,
   };
 
-  return loadedQuote;
+  return loadQuote;
 }
 
 export async function addQuote(quoteData) {
@@ -44,7 +44,7 @@ export async function addQuote(quoteData) {
     method: "POST",
     body: JSON.stringify(quoteData),
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application.json",
     },
   });
   const data = await response.json();
