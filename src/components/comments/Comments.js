@@ -21,7 +21,7 @@ const Comments = () => {
   }, [sendRequest, quoteId]);
 
   const startAddCommentHandler = () => {
-    setIsAddingComment(true);
+    setIsAddingComment(false); // closes new comment form
   };
 
   // useCallback is used to make sure the function is not recreated when the parent component re-renders
